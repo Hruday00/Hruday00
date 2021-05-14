@@ -1,0 +1,17 @@
+import java.util.*;
+public class Maps {
+public static void main(String[] args) {
+	Maps i=new Maps();
+	Set s=i.studentList().entrySet();
+	System.out.println(s);
+	
+}
+public Map studentList() {
+	Map m=new TreeMap();
+	m.put(3, "ravi");
+	m.put(2, "raju");
+	m.put(1, "ashlesh");
+	return m;
+}
+}
+ 
