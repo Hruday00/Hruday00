@@ -1,5 +1,4 @@
 import java.util.*;
-
 public class CountryMap {
 private HashMap<String,String> m1;
 public CountryMap() {
@@ -15,7 +14,7 @@ return h1.get(CountryName);
 String retriveCountry(String CapitalName) {
 retrive h1.get(CapitalName);
 }
-public HashMap swap() {
+public HashMap shift() {
 	HashMap h2=new HashMap();
 	Set s=h1.entrySet();
 	Iterator i=s.iterator();
@@ -41,8 +40,7 @@ public static void main(String[] args) {
 	m.storeCountryCapital("japan","tokyo");
 	System.out.println(m.retriveCapital("india"));
 	System.out.println(m.retriveCountry("tokyo"));
-	System.out.println(m.array());
-	HashMap w=m.swap();
+	HashMap w=m.shift();
 	System.out.println(w);
 }
 }
