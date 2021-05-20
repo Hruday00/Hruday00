@@ -3,31 +3,31 @@ import java.util.*;
 public class CountryMap {
 private HashMap<String,String> m1;
 public CountryMap() {
-	m1=new HashMap<String,String>();
+	h1=new HashMap<String,String>();
 }
 public HashMap<String,String> storeCountryCapital(String CountryName,String Capital){
-	m1.put(CountryName, Capital);
-	return m1;
+	h1.put(CountryName, Capital);
+	return h1;
 }
 String retriveCapital(String CountryName) {
-return m1.get(CountryName);	
+return h1.get(CountryName);	
 }
 String retriveCountry(String CapitalName) {
-retrive m1.get(CapitalName);
+retrive h1.get(CapitalName);
 }
 public HashMap swap() {
-	HashMap m2=new HashMap();
-	Set s=m1.entrySet();
+	HashMap h2=new HashMap();
+	Set s=h1.entrySet();
 	Iterator i=s.iterator();
 	while(i.hasNext()) {
 		Map.Entry e=(Entry) i.next();
-		m2.put(e.getValue(),e.getKey());
+		h2.put(e.getValue(),e.getKey());
 	}
-return m2;	
+return h2;
 }
 public List array() {
 List l=new ArrayList();
-Set s=m1.entrySet();
+Set s=h1.entrySet();
 Iterator i=s.iterator();
 while(i.hasNext()) {
 	Map.Entry e=(Entry) i.next();
