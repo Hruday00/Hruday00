@@ -1,0 +1,22 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+public class FileReverseReading {
+public static void main(String[] args) throws FileNotFoundException {
+	FileReader fr=new FileReader("C:\\\\Users\\\\hruda\\\\OneDrive\\\\Documents\\\\Data.txt");
+	BufferedReader br=new BufferedReader(fr);
+	String line;
+	try {
+		line = br.readLine();
+
+	char ar[]=line.toCharArray();
+	for(int i=ar.length-1;i>=0;i--)
+		System.out.print(ar[i]+"");
+	
+	}catch(IOException e) {
+		e.printStackTrace();
+	}
+}
+}
+Output:maerts tupnIdereffub si margorp eht
