@@ -1,0 +1,20 @@
+package mgr;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class BufferedWriterEmailReg {
+public static void main(String[] args) throws IOException {
+	Scanner sc=new Scanner(System.in);
+	String name=sc.nextLine();
+	String mail=sc.next();
+	FileWriter f=new FileWriter("newFile.txt");
+	BufferedWriter bw=new BufferedWriter(f);
+	bw.write("Welcome"+ name+"Thank you for registering your email id"+ mail);
+	bw.flush();
+	bw.close();
+}
+}
+Output in theform of file:-Welcomehruday Thank you for registering your email idhruday02180@gmail.com
