@@ -1,0 +1,10 @@
+1.C(because c1 and c3 is collected by garbage collector)
+2. A
+3.A
+4.C
+5.A
+6.C
+7.B
+8.A
+9.C
+10.B
