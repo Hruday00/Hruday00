@@ -1,0 +1,96 @@
+public interface IColors {
+void fillwithcolor(Shape shape);
+}
+
+import java.util.*;
+public abstract class Shape {
+protected List<IColors> co=new ArrayList<IColors>();
+public Shape() {
+	super();
+}
+public boolean addColor(IColors colors) {
+	return co.add(colors);
+}
+public abstract void drawShapes();
+public abstract int modifyBorders();
+}
+
+public class Traingle extends Shape {
+	int re=20;
+	@Override
+	public void drawShapes() {
+System.out.println("Coloring Traingle:");
+System.out.println("This Triangle colored with: Green Color with "+re+" inch border.");
+co.stream().forEach(IColor -> IColor.fillwithcolor(this));
+	}
+	@Override
+	public int modifyBorders() {
+		return re;
+	}
+}
+
+public class Rectangle extends Shape{
+int re=50;
+	@Override
+	public void drawShapes() {
+		System.out.println("Coloring Rectangle:");
+		System.out.println("This Rectangle colored with: Red Color with "+re+" inch border.");
+		co.stream().forEach(IColor -> IColor.fillwithcolor(this));
+			}		
+	@Override
+	public int modifyBorders() {
+		return re;
+	}
+}
+
+public class RedColor implements IColors{
+public RedColor() {
+	super();
+}
+@Override
+public void fillwithcolor(Shape shape) {
+System.out.println("How we are Changing the border length 3 times.");
+int inch=2*shape.modifyBorders();
+System.out.println("The Rectangle colored with: Red color with"+inch+" border.");
+}
+}
+
+public class GreenColor implements IColors {
+public GreenColor() {
+	super();
+}
+@Override
+public void fillwithcolor(Shape shape) {
+	System.out.println("How we are Changing the border length 3 times.");
+	int inch=3*shape.modifyBorders();
+	System.out.println("The Triangle colored with: Green color with"+inch+" border.");
+}
+}
+
+
+public class Client {
+public static void main(String[] args) {
+	System.out.println("******BRIDGEPATTERN********");
+	System.out.println();
+	Shape s=new Traingle();
+	s.addColor(new GreenColor());
+	s.drawShapes();
+System.out.println();
+Shape r=new Rectangle();
+r.addColor(new RedColor());
+r.drawShapes();
+}
+}
+
+Output:
+******BRIDGEPATTERN********
+
+Coloring Traingle:
+This Triangle colored with: Green Color with 20 inch border.
+How we are Changing the border length 3 times.
+The Triangle colored with: Green color with60 border.
+
+Coloring Rectangle:
+This Rectangle colored with: Red Color with 50 inch border.
+How we are Changing the border length 3 times.
+The Rectangle colored with: Red color with100 border.
