@@ -1,0 +1,86 @@
+
+public interface Shape {
+public String draw();
+}
+
+public class Circle implements Shape{
+	@Override
+	public String draw() {
+		return "Shape:Circle";
+	}
+}
+
+public class Rectangle implements Shape{
+	@Override
+	public String draw() {
+		return "Shape: Rectangle";
+	}
+}
+
+public class RedShapeDecorator extends ShapeDecorator{
+	public RedShapeDecorator(Shape newShape) {
+		super(newShape);
+	}
+public String draw() {
+	return super.draw()+" \nBorder Color:Red";
+}
+}
+
+public class GreenShapeDecorator extends ShapeDecorator{
+	public GreenShapeDecorator(Shape newShape) {
+		super(newShape);
+	}
+public String draw() {
+	return super.draw()+" \nBorder Color:Green";
+}
+}
+
+import java.util.Scanner;
+public class DecoratorPattern {
+private static String choice;
+public static void main(String[] args) {
+System.out.println( "\nCircle with normal border");
+		Circle c=new Circle();
+		System.out.println(c.draw());
+System.out.println("\nCircle of red border");
+		Shape c1=new RedShapeDecorator((Shape) new Circle());
+		System.out.println(c1.draw());
+		System.out.println("\nCircle of green border");
+		Shape g1=new GreenShapeDecorator((Shape) new Circle());
+		System.out.println(g1.draw());
+	System.out.println("\nRectangle with normal border");
+		Rectangle r=new Rectangle();
+		System.out.println(r.draw());
+	System.out.println("\nRectangle with red border");
+	Shape r1=new RedShapeDecorator((Shape) new Rectangle());
+	System.out.println(r1.draw());
+	System.out.println("\nRectangle with green border");
+	Shape g2=new GreenShapeDecorator((Shape) new Rectangle());
+	System.out.println(g2.draw());
+
+}
+}
+
+OUTPUT:
+
+Circle with normal border
+Shape:Circle
+
+Circle of red border
+Shape:Circle 
+Border Color:Red
+
+Circle of green border
+Shape:Circle 
+Border Color:Green
+
+Rectangle with normal border
+Shape: Rectangle
+
+Rectangle with red border
+Shape: Rectangle 
+Border Color:Red
+
+Rectangle with green border
+Shape: Rectangle 
+Border Color:Green
